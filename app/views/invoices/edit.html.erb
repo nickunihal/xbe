@@ -1,0 +1,47 @@
+<h1>Invoice#edit</h1>
+
+
+<div style="padding-top: 50px;padding-left: 500px;">
+<%= form_for @invoice , url: invoices_update_path do |f| %>
+	<%= f.hidden_field :id, value: @invoice.id %>
+
+  <%= f.label :invoice_no , style: "display:block; width: 80px;" %>
+  <%= f.text_field :invoice_no %>
+  <br>
+  <br>
+  <%= f.label :full_name , style: "display:block; width: 80px;" %>
+  <%= f.text_field :full_name %>
+  <br>
+  <br>
+  <%= f.label :email , style: "display:block; width: 80px;" %>
+  <%= f.text_field :email %>
+  <br>
+  <br>
+  <%= f.label :phone , style: "display:block; width: 80px;" %>
+  <%= f.number_field :phone %>
+  <br>
+  <br>
+  <%= f.label :discount , style: "display:block; width: 80px;" %>
+  <%= f.number_field :discount %>
+  <br>
+  <br>
+  <%= f.label :total_paid_amount , style: "display:block; width: 80px;" %>
+  <%= f.number_field :total_paid_amount %>
+  <br>
+  <br>
+
+  <%= f.fields_for :invoice_items do |subf| %>
+    <br>
+      <%= f.label :item , style: "display:block; width: 80px;" %>
+      <%= f.select_field :item %>
+    <br>
+    <br>
+      <%= f.label :rate , style: "display:block; width: 80px;" %>
+      <%= f.number_field :rate %>
+    <br> 
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>
+
+</div>

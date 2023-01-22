@@ -1,0 +1,49 @@
+<h1>InvoicesBatches#index</h1>
+<div style="padding: 50px">
+  <span>
+  <%= link_to "Home", root_path, {method: :get, class: "button", style: "float: left; cursor: pointer; vertical-align: text-bottom;color: green;"}%>
+  </span>  
+  <span>
+  <%= link_to "Create New Invoice Batch", invoices_invoice_batch_new_path, {method: :get, class: "button", style: "float: left; cursor: pointer; vertical-align: text-bottom;color: green;margin-left: 10px;"}%>
+  </span>  
+
+</div>
+
+<div class="container" style="margin-top: 10px;">
+  <table class="datatable cell-border" id='data'>
+    <thead>
+      <tr>
+        <th style="text-align: center;">Invoice Batch ID</th>
+        <th style="text-align: center;">Batch Date</th>
+        <th style="text-align: center;">Totak Amount</th>
+        <th style="text-align: center;">No of Invoices</th>
+      </tr>
+
+    </thead>
+    <tbody class="dt-body-right stripe">
+      <% @data.each do |invoice_batch_data| %>
+        <tr>
+          <td style="text-align: left;"> <%= invoice_batch_data.id %> </td>
+          <td style="text-align: left;"> <%= invoice_batch_data.batch_date.try(:strftime,"%d %m %y") %> </td>
+          <td style="text-align: center;"> <%= invoice_batch_data.total_invoice_amount %> </td>
+          <td style="text-align: center;"> <%= invoice_batch_data.invoices.size %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script type="text/javascript">
+  $('#data').DataTable({
+    bFilter   : true,
+    bInfo     : true,
+    "bSort"   : true,
+    dom: 'lfrtiBp',
+    buttons: ['excel'],
+    "paging"  : true
+ 
+  });
+</script>

@@ -1,0 +1,18 @@
+<div class="nested-fields" style="padding: 10px; border:1px dotted black;width: 400px;">
+  <%= f.hidden_field :_destroy %>
+  <br>
+    <%= f.label :item_id , style: "display:block; width: 80px;" %>
+    <%= f.select :item_id, Item.all.pluck(:name,:id) %>
+  <br>
+  <br>
+    <%= f.label :rate , style: "display:block; width: 80px;" %>
+    <%= f.number_field :rate ,  :input_html => { :value => 0 } %>
+  <br> 
+  <br>
+    <%= f.label :quantity , style: "display:block; width: 80px;" %>
+    <%= f.number_field :quantity ,  :input_html => { :value => 0 } %>
+  <br> 
+  <br> 
+  <%= link_to "Remove", '#', class: "remove_fields" %>
+  <%= f.hidden_field :invoice_id, value: @invoice.id %>
+</div>

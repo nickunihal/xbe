@@ -1,0 +1,24 @@
+<h1>Items#edit</h1>
+<p>Find me in app/views/items/edit.html.erb</p>
+
+
+<div style="padding-top: 50px;padding-left: 500px;">
+<%= form_for @item , url: items_update_path do |f| %>
+	<%= f.hidden_field :id, value: @item.id %>
+
+  <%= f.label :name , style: "display:block; width: 80px;" %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :category , style: "display:block; width: 80px;" %>
+  <%= f.text_field :category %>
+  <br>
+  <br>
+  <%= f.label :mrp , style: "display:block; width: 80px;" %>
+  <%= f.number_field :mrp %>
+  <br>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+</div>

@@ -1,0 +1,42 @@
+<div style="padding-top: 50px;padding-left: 500px;">
+<%= form_for @invoice , url: invoices_create_path, local: true do |f| %>
+	<%= f.hidden_field :id, value: @invoice.id %>
+
+  <%= f.label :invoice_no , style: "display:block; width: 80px;" %>
+  <%= f.text_field :invoice_no %>
+  <br>
+  <br>
+  <%= f.label :full_name , style: "display:block; width: 80px;" %>
+  <%= f.text_field :full_name %>
+  <br>
+  <br>
+  <%= f.label :email , style: "display:block; width: 80px;" %>
+  <%= f.text_field :email %>
+  <br>
+  <br>
+  <%= f.label :phone , style: "display:block; width: 80px;" %>
+  <%= f.number_field :phone %>
+  <br>
+  <br>
+  <%= f.label :discount , style: "display:block; width: 80px;" %>
+  <%= f.number_field :discount %>
+  <br>
+  <br>
+  <%= f.label :total_paid_amount , style: "display:block; width: 80px;" %>
+  <%= f.number_field :total_paid_amount %>
+  <br>
+  <br>
+  Invoice Items
+  <div style="padding-left: 25px;padding: 20px; border:1px solid black;width: 400px;">
+      <%= f.fields_for :invoice_items do |subf| %>
+        <%= render "invoice_item_fields", f: subf %>
+      <% end %>
+    <%= link_to_add_fields "Add Invoice Item", f, :invoice_items %>
+  </div>
+  
+  <br>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+</div>

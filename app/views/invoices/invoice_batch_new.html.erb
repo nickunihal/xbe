@@ -1,0 +1,18 @@
+<div style="padding-top: 50px;padding-left: 500px;">
+<%= form_for @invoice_batch , url: invoices_invoice_batch_create_path, local: true do |f| %>
+
+  <%= f.label :batch_date , style: "display:block; width: 80px;" %>
+  <%= f.date_field :batch_date %>
+  <br>
+  <br>
+  <%= f.label :total_invoice_amount , style: "display:block; width: 80px;" %>
+  <%= f.number_field :total_invoice_amount %>
+  <br>
+  <br>
+  <%= f.select :invoice_ids, options_for_select(Invoice.where(invoice_batch_id: nil).collect{ |invoice| [invoice.invoice_no, invoice.id] } ), {prompt: '-Select-', :multiple => true},:multiple => true %>
+  <br>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+</div>

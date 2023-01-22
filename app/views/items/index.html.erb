@@ -1,0 +1,54 @@
+<h1>Items#index</h1>
+ <div style="padding: 50px">
+  <span>
+  <%= link_to "Home", root_path, {method: :get, class: "button", style: "float: left; cursor: pointer; vertical-align: text-bottom;color: green;margin-right: 10px;"}%>
+  </span>  
+  <span>
+  <%= link_to "Create New Item", items_new_path, {method: :get, class: "button", style: "float: left; cursor: pointer; vertical-align: text-bottom;color: green;margin-left: 10px;"}%>
+  </span>  
+
+</div>
+
+
+
+<div class="container" style="margin-top: 10px;">
+  <table class="datatable cell-border" id='data'>
+    <thead>
+      <tr>
+        <th style="text-align: center;">Name</th>
+        <th style="text-align: center;">Category</th>
+        <th style="text-align: center;">MRP</th>
+        <th style="text-align: center;">Actions</th>
+      </tr>
+
+    </thead>
+    <tbody class="dt-body-right stripe">
+      <% @data.each do |item_data| %>
+        <tr>
+          <td style="text-align: left;"> <%= item_data.name %> </td>
+          <td style="text-align: left;"> <%= item_data.category %> </td>
+          <td style="text-align: center;"> <%= item_data.mrp %> </td>
+          <td style="text-align: left;"> <%= link_to "Edit", items_edit_path(id: item_data.id), {method: :get} %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+  <script src="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+  $('#data').DataTable({
+    bFilter   : true,
+    bInfo     : true,
+    "bSort"   : true,
+    dom: 'lfrtiBp',
+    buttons: ['excel'],
+    "paging"  : true
+ 
+  });
+</script>

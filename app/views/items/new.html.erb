@@ -1,0 +1,19 @@
+<div style="padding-top: 50px;padding-left: 500px;">
+<%= form_for @item , url: items_create_path, local: true do |f| %>
+
+  <%= f.label :name , style: "display:block; width: 80px;" %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :category , style: "display:block; width: 80px;" %>
+  <%= f.text_field :category %>
+  <br>
+  <br>
+  <%= f.label :mrp , style: "display:block; width: 80px;" %>
+  <%= f.number_field :mrp %>
+  <br>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
+</div>
