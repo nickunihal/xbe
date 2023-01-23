@@ -45,3 +45,6 @@ In our Rails application we have a sidekiq worker which opens a database connect
       - Tests the LISTEN and NOTIFY feature of postgresql.
     - amount updation logic
       - Checls of the logic for invoice batch total_invoice_updation is sum of the batched invoice total_bill_amount.
+      
+### References
+  * [RailsConf 2022 - Call me back, Postgres by Ifat Ribon](https://www.youtube.com/watch?v=nWe8JtZx3HM)
